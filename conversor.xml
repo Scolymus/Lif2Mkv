@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project Lif2avi_noij with libraries in sub-folder">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="F:/Users/Lucas/workspace"/>
+    <property name="dir.jarfile" value="${dir.buildfile}"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/mkv2Avi.jar">
+            <manifest>
+                <attribute name="Main-Class" value="Conversor"/>
+                <attribute name="Class-Path" value=". mkv2Avi_lib/loci_tools.jar mkv2Avi_lib/ffmpeg-windows-x86_64.jar mkv2Avi_lib/javacpp.jar mkv2Avi_lib/ffmpeg.jar"/>
+            </manifest>
+            <fileset dir="${dir.jarfile}/bin"/>
+            <fileset dir="${dir.jarfile}"/>
+        </jar>
+        <delete dir="${dir.jarfile}/mkv2Avi_lib"/>
+        <mkdir dir="${dir.jarfile}/mkv2Avi_lib"/>
+        <copy file="${dir.jarfile}/loci_tools.jar" todir="${dir.jarfile}/mkv2Avi_lib"/>
+        <copy file="${dir.jarfile}/ffmpeg-windows-x86_64.jar" todir="${dir.jarfile}/mkv2Avi_lib"/>
+        <copy file="${dir.jarfile}/javacpp.jar" todir="${dir.jarfile}/mkv2Avi_lib"/>
+        <copy file="${dir.jarfile}/ffmpeg.jar" todir="${dir.jarfile}/mkv2Avi_lib"/>
+    </target>
+</project>
